@@ -15,3 +15,10 @@ std::string join(const std::vector<std::string>& parts, const std::string& delim
 std::string tolower(const std::string& str);
 
 bool equalsIgnoreCase(const std::string& str1, const std::string& str2);
+
+void ltrim(std::string &s); // trim from start (in place)
+void rtrim(std::string &s); // trim from end (in place)
+void trim(std::string &s);  // trim from both ends (in place)
+std::string ltrim_copy(std::string s); // trim from start (copying)
+std::string rtrim_copy(std::string s); // trim from end (copying)
+std::string trim_copy(std::string s);  // trim from both ends (copying)
