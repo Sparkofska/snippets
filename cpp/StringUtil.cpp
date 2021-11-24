@@ -79,3 +79,42 @@ bool equalsIgnoreCase(const std::string& str1, const std::string& str2)
 {
 	return tolower(str1).compare(tolower(str2)) == 0;
 }
+
+
+void StringUtil::ltrim(std::string &s)
+{
+	s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](unsigned char ch) {
+		return !std::isspace(ch);
+	}));
+}
+
+void StringUtil::rtrim(std::string &s)
+{
+	s.erase(std::find_if(s.rbegin(), s.rend(), [](unsigned char ch) {
+		return !std::isspace(ch);
+	}).base(), s.end());
+}
+
+void StringUtil::trim(std::string &s)
+{
+	ltrim(s);
+	rtrim(s);
+}
+
+std::string StringUtil::ltrim_copy(std::string s)
+{
+	ltrim(s);
+	return s;
+}
+
+std::string StringUtil::rtrim_copy(std::string s)
+{
+	rtrim(s);
+	return s;
+}
+
+std::string StringUtil::trim_copy(std::string s)
+{
+	trim(s);
+	return s;
+}
