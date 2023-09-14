@@ -80,6 +80,25 @@ bool equalsIgnoreCase(const std::string& str1, const std::string& str2)
 	return tolower(str1).compare(tolower(str2)) == 0;
 }
 
+std::string StringUtils::replace(const std::string &original, const std::string &search, const std::string &replace, int count /*= -1*/)
+{
+	std::string result = original; // Create a copy of the original string
+	size_t startPos = 0;
+	int replacements = 0;
+
+	while (count != 0 && (startPos = result.find(search, startPos)) != std::string::npos)
+	{
+		result.replace(startPos, search.length(), replace);
+		startPos += replace.length();
+		++replacements;
+		if (count > 0 && replacements >= count)
+		{
+			break;
+		}
+	}
+
+	return result;
+}
 
 void StringUtil::ltrim(std::string &s)
 {
