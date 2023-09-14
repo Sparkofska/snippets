@@ -16,6 +16,8 @@ std::string tolower(const std::string& str);
 
 bool equalsIgnoreCase(const std::string& str1, const std::string& str2);
 
+std::string replace(const std::string &original, const std::string &search, const std::string &replace, int count = -1);
+
 void ltrim(std::string &s); // trim from start (in place)
 void rtrim(std::string &s); // trim from end (in place)
 void trim(std::string &s);  // trim from both ends (in place)
